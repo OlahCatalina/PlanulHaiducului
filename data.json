@@ -1,44 +1,44 @@
 {
-    "cabana": {
-        "nume": "Cazare cabana tip A",
-        "locație": "Bologa, Cluj County 407471, România",
+    "cabin": {
+        "name": "A-frame Cabin Stay",
+        "location": "Bologa, Cluj County 407471, Romania",
         "link_airbnb": "https://www.airbnb.com.ro/rooms/964314240212909855?unique_share_id=a8335210-85f2-4a76-9667-38d7ebc3ac98&viralityEntryPoint=1&s=76",
-        "link_maps_destinatie": "https://www.google.com/maps/search/?api=1&query=Bologa,+Cluj+County+407471",
-        "perioada": "28 - 30 Noiembrie",
-        "nopți": 2,
-        "utilizatori": ["Alexandra", "Cătălina", "Stefan", "Mihai"],
-        "preț_total": 1128,
-        "preț_pe_noapte": 564,
-        "rute": {
-            "cluj_text": "Cluj-Napoca -> Huedin -> Bologa (~1h, 60 km pe E60)",
+        "link_maps_destination": "https://www.google.com/maps/search/?api=1&query=Bologa,+Cluj+County+407471",
+        "period": "November 28 - 30",
+        "nights": 2,
+        "users": ["Alexandra", "Cătălina", "Stefan", "Mihai"],
+        "price_total": 1128,
+        "price_per_night": 564,
+        "routes": {
+            "cluj_text": "Cluj-Napoca -> Huedin -> Bologa (~1h, 60 km on E60)",
             "cluj_link": "https://goo.gl/maps/cfi335DZxiTX6zs19?g_st=ac",
-            "bucuresti_text": "București -> Brașov -> Sibiu -> Sebeș -> Turda -> Cluj -> Bologa (~6h 30m)",
-            "bucuresti_link": "https://www.google.com/maps/dir/București/Bologa,+407471"
+            "bucharest_text": "Bucharest -> Brașov -> Sibiu -> Sebeș -> Turda -> Cluj -> Bologa (~6h 30m)",
+            "bucharest_link": "https://www.google.com/maps/dir/București/Bologa,+407471"
         },
         "highlights": [
-            "Cabana tip A-frame",
-            "Grătar / Grill exterior",
-            "Zonă liniștită aproape de Cetatea Bologa",
-            "Wi-Fi & Parcare"
+            "A-frame cabin",
+            "Outdoor BBQ / Grill",
+            "Quiet area close to Bologa Fortress",
+            "Wi-Fi & Parking"
         ]
     },
-    "poll_mâncare": {
+    "food_poll": {
         "locked": false,
-        "opțiuni_existente": {
-            "Carne & Grill": ["Ceafă de porc", "Mici", "Pui pentru grătar", "Cârnați afumați"],
-            "Garnituri & Salate": ["Cartofi pentru copt", "Roșii, castraveți, ceapă", "Brânză telemea", "Sosuri (ketchup, muștar, maioneză)"],
-            "Mic dejun & Snack-uri": ["Ouă", "Pâine / Focaccia", "Mezeluri / Pastramă", "Chipsuri / Alune"],
-            "Băuturi": ["Bere la sticlă/doză", "Vin alb/roșu", "Tărie", "Apă plată / minerală", "Sucuri", "Cafea"]
+        "existing_options": {
+            "Meat & Grill": ["Pork neck", "Mici (Romanian skinless sausages)", "BBQ chicken", "Smoked sausages"],
+            "Sides & Salads": ["Potatoes for baking", "Tomatoes, cucumbers, onion", "Telemea cheese", "Sauces (ketchup, mustard, mayo)"],
+            "Breakfast & Snacks": ["Eggs", "Bread / Focaccia", "Cold cuts / Pastrami", "Chips / Peanuts"],
+            "Drinks": ["Bottled/canned beer", "White/red wine", "Spirits", "Still / sparkling water", "Juices", "Coffee"]
         },
-        "voturi_useri": {},
+        "user_votes": {},
         "custom_items": []
     },
     "shopping_list": [],
-    "activități": [
-        {"nume": "Vizită la Cetatea Bologa & Moara de apă", "voturi": [], "confirmat": false},
-        {"nume": "Drumeție la Cascada Vălul Miresei (Răchițele)", "voturi": [], "confirmat": false},
-        {"nume": "Seară de board games & mafia", "voturi": [], "confirmat": false},
-        {"nume": "Grătar & foc de tabără", "voturi": [], "confirmat": false}
+    "activities": [
+        {"name": "Visit Bologa Fortress & Water Mill", "votes": [], "confirmed": false},
+        {"name": "Hiking to Bridal Veil Waterfall (Răchițele)", "votes": [], "confirmed": false},
+        {"name": "Board games & Mafia night", "votes": [], "confirmed": false},
+        {"name": "BBQ & Campfire", "votes": [], "confirmed": false}
     ],
-    "cheltuieli": []
+    "expenses": []
 }
