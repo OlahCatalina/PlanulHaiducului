@@ -1,21 +1,14 @@
-/* Reduce heading sizes across the application for a cleaner mobile and desktop layout */
+/* Adjusted heading sizes across the application */
 h1 {
-    font-size: 1.8rem !important;
+    font-size: 2.0rem !important;
     padding-bottom: 0.3rem;
 }
 
 h2 {
-    font-size: 1.3rem !important;
+    font-size: 1.5rem !important;
     margin-top: 0.8rem !important;
 }
 
 h3 {
-    font-size: 1.05rem !important;
-}
-
-/* Compact card-like styling for Streamlit metric components */
-.stMetric {
-    background-color: #1e1e1e;
-    padding: 10px;
-    border-radius: 8px;
+    font-size: 1.15rem !important;
 }
