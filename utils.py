@@ -1,37 +1,53 @@
 import json
 import os
 
+# Path to the local JSON database
 DATA_FILE = "data.json"
 
+# Default fallback data structure aligned with the English schema
 DEFAULT_DATA = {
-    "cabana": {
-        "nume": "Cazare cabana tip A",
-        "locație": "Bologa, Cluj County 407471, România",
+    "cabin": {
+        "name": "A-frame Cabin Stay",
+        "location": "Bologa, Cluj County 407471, Romania",
         "link_airbnb": "https://www.airbnb.com.ro/rooms/964314240212909855",
-        "link_maps_destinatie": "https://www.google.com/maps/search/?api=1&query=Bologa,+Cluj+County+407471",
-        "perioada": "28 - 30 Noiembrie",
-        "nopți": 2,
-        "utilizatori": ["Alexandra", "Cătălina", "Stefan", "Mihai"],
-        "preț_total": 1128,
-        "preț_pe_noapte": 564,
-        "rute": {},
-        "highlights": []
+        "link_maps_destination": (
+            "https://www.google.com/maps/search/?api=1&query=Bologa,+Cluj+County+407471"
+        ),
+        "period": "November 28 - 30",
+        "nights": 2,
+        "users": ["Alexandra", "Cătălina", "Stefan", "Mihai"],
+        "price_total": 1128,
+        "price_per_night": 564,
+        "routes": {},
+        "highlights": [],
     },
-    "poll_mâncare": {"locked": False, "opțiuni_existente": {}, "voturi_useri": {}, "custom_items": []},
+    "food_poll": {
+        "locked": False,
+        "existing_options": {},
+        "user_votes": {},
+        "custom_items": [],
+    },
     "shopping_list": [],
-    "activități": [],
-    "cheltuieli": []
+    "activities": [],
+    "expenses": [],
 }
 
+
 def load_data():
-    if os.path.exists(DATA_FILE):
-        try:
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return DEFAULT_DATA
-    return DEFAULT_DATA
+  """Loads the application state from data.json.
+
+  Returns DEFAULT_DATA if the file does not exist or cannot be parsed.
+  """
+  if os.path.exists(DATA_FILE):
+    try:
+      with open(DATA_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
+    except Exception:
+      return DEFAULT_DATA
+  return DEFAULT_DATA
+
 
 def save_data(data):
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+  """Persists the current application state dictionary to data.json."""
+  with open(DATA_FILE, "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
