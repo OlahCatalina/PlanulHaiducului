@@ -6,28 +6,30 @@ def render(data, users=None):
 
   group details, booking/location links, travel routes, and property highlights.
   """
-  # Retrieve cabin details from the main data dictionary
   cabin = data.get("cabin", {})
 
-  # Fallback to users stored inside cabin data if not explicitly passed from main.py
   if users is None:
     users = cabin.get("users", [])
 
-  st.subheader(f"🏡 {cabin.get('name', 'A-frame Cabin Stay')}")
+  # Cabin title rendered as an h2 header for a slightly larger appearance
+  st.markdown(f"## 🏡 {cabin.get('name', 'A-frame Cabin Stay')}")
 
-  # Price breakdown section (3 compact columns on a single row)
+  # Price breakdown section explicitly structured into 3 horizontal columns
   st.markdown("### 💰 Price")
   col_p1, col_p2, col_p3 = st.columns(3)
-  col_p1.metric("Total", f"{cabin.get('price_total', 0)} RON")
-  col_p2.metric(
-      "Per night",
-      f"{cabin.get('price_per_night', 0)} RON",
-      f"{cabin.get('nights', 0)} nights",
-  )
-  col_p3.metric(
-      "Per person",
-      f"{cabin.get('price_total', 0) // max(1, len(users))} RON",
-  )
+  with col_p1:
+    st.metric("Total", f"{cabin.get('price_total', 0)} RON")
+  with col_p2:
+    st.metric(
+        "Per night",
+        f"{cabin.get('price_per_night', 0)} RON",
+        f"{cabin.get('nights', 0)} nights",
+    )
+  with col_p3:
+    st.metric(
+        "Per person",
+        f"{cabin.get('price_total', 0) // max(1, len(users))} RON",
+    )
 
   st.markdown("---")
 
