@@ -7,7 +7,6 @@ from tabs import activitati, buget, cabana, cumparaturi, mancare
 
 DATA_FILE = "data.json"
 STYLE_FILE = "style.css"
-USERS = ["Alexandra", "Cătălina", "Stefan", "Mihai"]
 
 
 def load_data():
@@ -27,6 +26,9 @@ def save_data(data):
 
 # Încărcăm datele din json-ul din root
 data = load_data()
+
+# Extragem lista de utilizatori direct din structura de date (fallback la o listă goală dacă lipsește)
+USERS = data.get("users", ["Alexandra", "Cătălina", "Stefan", "Mihai"])
 
 st.set_page_config(
     page_title="Cabana tip A - Bologa 🏡", page_icon="🏔️", layout="centered"
