@@ -2,14 +2,19 @@ import json
 import os
 import streamlit as st
 
-# Importăm modulele din folderul tabs
-from tabs import activitati, buget, cabana, cumparaturi, mancare
+# Import modular tabs from the 'tabs' folder package
+from tabs import activities, budget, cabin, food, shopping
 
+# Path definitions for the local JSON database and external CSS styling
 DATA_FILE = "data.json"
 STYLE_FILE = "style.css"
 
 
 def load_data():
+  """Loads data from the local data.json file.
+
+  Returns a dictionary containing the app state or an empty dict if it fails.
+  """
   if os.path.exists(DATA_FILE):
     try:
       with open(DATA_FILE, "r", encoding="utf-8") as f:
@@ -20,48 +25,61 @@ def load_data():
 
 
 def save_data(data):
+  """Saves the updated state dictionary back to data.json with UTF-8 encoding
+
+  and proper indentation.
+  """
   with open(DATA_FILE, "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
 
-# Încărcăm datele din json-ul din root
+# Load global application data from the root directory
 data = load_data()
 
-# Extragem lista de utilizatori direct din structura de date (fallback la o listă goală dacă lipsește)
-USERS = data.get("users", ["Alexandra", "Cătălina", "Stefan", "Mihai"])
-
-st.set_page_config(
-    page_title="Cabana tip A - Bologa 🏡", page_icon="🏔️", layout="centered"
+# Extract the fixed list of users from the cabin settings (with a fallback list)
+USERS = data.get("cabin", {}).get(
+    "users", ["Alexandra", "Cătălina", "Stefan", "Mihai"]
 )
 
-# Încărcăm fișierul extern style.css
+# Streamlit general page configuration
+st.set_page_config(
+    page_title="A-frame Cabin - Bologa 🏡", page_icon="🏔️", layout="centered"
+)
+
+# Load external CSS styling from style.css if available in root
 if os.path.exists(STYLE_FILE):
   with open(STYLE_FILE, "r", encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-st.title("🏔️ Weekend la Cabană tip A — Bologa")
+# Main title display
+st.title("🏔️ A-frame Cabin Weekend — Bologa")
 st.markdown("---")
 
-# Generăm tab-urile aplicației
+# Setup navigation tabs for the web interface
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "🏡 Cabana & Info",
-    "🍔 Poll Mâncare",
-    "🛒 Cumpărături",
-    "🎯 Activități",
-    "💸 Buget",
+    "🏡 Cabin & Info",
+    "🍔 Food Poll",
+    "🛒 Shopping",
+    "🎯 Activities",
+    "💸 Budget",
 ])
 
+# Render Tab 1: Cabin details, pricing breakdown, and logistics
 with tab1:
-  cabana.render(data, USERS)
+  cabin.render(data, USERS)
 
+# Render Tab 2: Food & Drink poll system and custom additions
 with tab2:
-  mancare.render(data, USERS, save_data)
+  food.render(data, USERS, save_data)
 
+# Render Tab 3: Unified shopping checklist generated from poll results
 with tab3:
-  cumparaturi.render(data, USERS, save_data)
+  shopping.render(data, USERS, save_data)
 
+# Render Tab 4: Interactive group voting for weekend activities
 with tab4:
-  activitati.render(data, USERS, save_data)
+  activities.render(data, USERS, save_data)
 
+# Render Tab 5: Financial tracking, expense logging, and smart split calculations
 with tab5:
-  buget.render(data, USERS, save_data)
+  budget.render(data, USERS, save_data)
