@@ -1,18 +1,19 @@
-
-/* Reducem dimensiunile titlurilor în general */
+/* Reduce heading sizes across the application for a cleaner mobile and desktop layout */
 h1 {
     font-size: 1.8rem !important;
     padding-bottom: 0.3rem;
 }
+
 h2 {
     font-size: 1.3rem !important;
     margin-top: 0.8rem !important;
 }
+
 h3 {
     font-size: 1.05rem !important;
 }
 
-/* Design compact pentru elemente */
+/* Compact card-like styling for Streamlit metric components */
 .stMetric {
     background-color: #1e1e1e;
     padding: 10px;
